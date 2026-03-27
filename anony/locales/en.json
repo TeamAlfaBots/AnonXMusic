@@ -32,7 +32,7 @@
     "eval_error": "⚠️ 𝐄𝗋𝗋𝗈𝗋 𝐄𝗑𝖾𝖼𝗎𝗍𝗂𝗇𝗀 𝐒𝗇𝗂𝗉𝗉𝖾𝖽\n\n",
     "eval_inp": "𝐖𝗁𝖺𝗍?",
     "eval_out": "<b>𝐎𝗎𝗍𝗉𝗎𝗍:</b>\n<code>{0}</code>",
-    "gcast_usage": "𝐑𝖾𝗉𝗅𝗒 𝐓𝗈 𝐀 𝐌𝖾𝗌𝗌𝖺𝗌𝖾 𝐅𝗈𝗋 𝐁𝗋𝗈𝖺𝖽𝖼𝖺𝗌𝗍𝗂𝗇𝗀 𝐓𝗁𝖾 𝐌𝖾𝗌𝗌𝖺𝗀𝖾Reply to a message.",
+    "gcast_usage": "𝐑𝖾𝗉𝗅𝗒 𝐓𝗈 𝐀 𝐌𝖾𝗌𝗌𝖺𝗌𝖾 𝐅𝗈𝗋 𝐁𝗋𝗈𝖺𝖽𝖼𝖺𝗌𝗍𝗂𝗇𝗀 𝐓𝗁𝖾 𝐌𝖾𝗌𝗌𝖺𝗀𝖾.",
     "gcast_active": "Please wait for the ongoing broadcast to finish.",
     "gcast_inactive": "Broadcasting is currently inactive.",
     "gcast_start": "Broadcasting started.",
