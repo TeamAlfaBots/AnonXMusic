@@ -12,7 +12,7 @@ class Config:
         self.MONGO_URL = getenv("MONGO_URL")
 
         self.LOGGER_ID = int(getenv("LOGGER_ID", 0))
-        self.OWNER_ID = int(getenv("OWNER_ID", 0))
+        self.OWNER_ID = list(map(int, getenv("OWNER_ID", "").split(",")))
 
         self.DURATION_LIMIT = int(getenv("DURATION_LIMIT", 60)) * 60
         self.QUEUE_LIMIT = int(getenv("QUEUE_LIMIT", 20))
