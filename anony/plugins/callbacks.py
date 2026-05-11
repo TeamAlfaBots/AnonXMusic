@@ -176,3 +176,29 @@ async def _settings_cb(_, query: types.CallbackQuery):
             chat_id,
         )
     )
+
+
+# ============================================
+# NEW: SOURCE MENU CALLBACKS
+# Username-based ONLY - NO User ID system
+# ============================================
+
+@app.on_callback_query(filters.regex("^source_menu$") & ~app.bl_users)
+@lang.language()
+async def source_menu_cb(_, query: types.CallbackQuery):
+    """Source button click - submenu dikhaye"""
+    await query.answer(query.lang.get("processing", "📂 Source Menu"), show_alert=True)
+    await query.edit_message_reply_markup(
+        reply_markup=buttons.source_markup(query.lang)
+    )
+
+
+@app.on_callback_query(filters.regex("^source_back$") & ~app.bl_users)
+@lang.language()
+async def source_back_cb(_, query: types.CallbackQuery):
+    """Back button - wapas start menu pe le jaye"""
+    await query.answer(query.lang.get("back", "🔙 Back"))
+    await query.edit_message_reply_markup(
+        reply_markup=buttons.start_key(query.lang, private=True)
+        )
+    
