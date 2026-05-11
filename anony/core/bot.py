@@ -19,10 +19,10 @@ class Bot(pyrogram.Client):
             max_concurrent_transmissions=7,
             link_preview_options=pyrogram.types.LinkPreviewOptions(is_disabled=True),
         )
-        self.owner = config.OWNER_ID
+        self.owner = config.OWNER_ID  # ab yeh list hai [id1, id2, ...]
         self.logger = config.LOGGER_ID
         self.bl_users = pyrogram.filters.user()
-        self.sudoers = pyrogram.filters.user(self.owner)
+        self.sudoers = pyrogram.filters.user(self.owner)  # list pass hogi seedha
 
     async def boot(self):
         """
@@ -53,3 +53,4 @@ class Bot(pyrogram.Client):
         """
         await super().stop()
         logger.info("Bot stopped.")
+        
