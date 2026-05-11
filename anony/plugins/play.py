@@ -35,6 +35,12 @@ async def play_hndlr(
     video: bool = False,
     url: str = None,
 ) -> None:
+    # Auto-delete user's /play command message
+    try:
+        await m.delete()
+    except Exception:
+        pass
+
     sent = await m.reply_text(m.lang["play_searching"])
     file = None
     mention = m.from_user.mention
@@ -131,3 +137,4 @@ async def play_hndlr(
         chat_id=m.chat.id,
         text=m.lang["playlist_queued"].format(len(tracks)) + added,
     )
+    
