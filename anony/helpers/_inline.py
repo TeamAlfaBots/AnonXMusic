@@ -1,7 +1,6 @@
-      # Copyright (c) 2025 AnonymousX1025
+# Copyright (c) 2025 AnonymousX1025
 # Licensed under the MIT License.
 # This file is part of AnonXMusic
-
 
 from pyrogram import types, enums
 
@@ -154,6 +153,9 @@ class Inline:
             ]
         )
 
+    # ============================================
+    # MODIFIED: Source button opens submenu
+    # ============================================
     def start_key(
         self, lang: dict, private: bool = False
     ) -> types.InlineKeyboardMarkup:
@@ -175,11 +177,12 @@ class Inline:
             ],
         ]
         if private:
+            # Source button opens submenu via callback
             rows += [
                 [
                     self.ikb(
                         text=lang["source"],
-                        url="https://t.me/Ucan_callme_X",
+                        callback_data="source_menu",
                         style=enums.ButtonStyle.PRIMARY,
                     )
                 ]
@@ -188,6 +191,43 @@ class Inline:
             rows += [[self.ikb(text=lang["language"], callback_data="language",
                                style=enums.ButtonStyle.PRIMARY)]]
         return self.ikm(rows)
+
+    # ============================================
+    # SOURCE SUBMENU: Username-based ONLY
+    # NO User ID system - direct profile links
+    # ============================================
+    def source_markup(self, lang: dict) -> types.InlineKeyboardMarkup:
+        """
+        Source submenu - Click pe direct Telegram profile khulega
+
+        👑 Owner     |  💻 Developer
+        🔧 Admin     |  💬 Ask me  
+        🔙 Back      |  ❌ Close
+
+        NOTE: Sirf username dalna hai, User ID ki zaroorat nahi!
+        """
+        return self.ikm(
+            [
+                [
+                    self.ikb(text="👑 Owner", url="https://t.me/realitywasalie",
+                             style=enums.ButtonStyle.PRIMARY),
+                    self.ikb(text="💻 Developer", url="https://t.me/Ucan_callme_X",
+                             style=enums.ButtonStyle.PRIMARY),
+                ],
+                [
+                    self.ikb(text="🔧 Admin", url="https://t.me/Prexep",
+                             style=enums.ButtonStyle.PRIMARY),
+                    self.ikb(text="💬 Ask me", url="https://t.me/II_DEAD_SOUL",
+                             style=enums.ButtonStyle.PRIMARY),
+                ],
+                [
+                    self.ikb(text=lang.get("back", "🔙 Back"), callback_data="source_back",
+                             style=enums.ButtonStyle.SUCCESS),
+                    self.ikb(text=lang.get("close", "❌ Close"), callback_data="help close",
+                             style=enums.ButtonStyle.DANGER),
+                ],
+            ]
+        )
 
     def yt_key(self, link: str) -> types.InlineKeyboardMarkup:
         return self.ikm(
@@ -200,3 +240,4 @@ class Inline:
                 ],
             ]
         )
+          
